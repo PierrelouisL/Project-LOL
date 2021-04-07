@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+    <title>Site ISN</title>
+	    <script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	 <link rel="stylesheet" href="Css3.css">
+  </head>
+  
+  <body>
+<div id="global">
+  
+	<div id="entete">
+		<h1> Joueurs </h1>
+	</div>
+  
+	<div id="centre">
+
+	<div id="contenu">
+	
+		<script type = "text/javascript">
+		function displayName(){
+			var name = summonerNames.value;
+			summonerNamesOutput.value =  name;
+		} // end displayName
+		
+		</script>
+		
+		
+		<script>
+		
+		function TESTING(){
+			var name = summonerNames.value;
+			//$.getJSON('http://time.jsontest.com', function(data) { 
+			$.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/'+name + '/1', function(data) {    
+			
+				summonerNamesOutput.value = `${data.summonerLevel}` 
+				var rep = document.getElementById("rep")
+				rep.innerHTML = summonerNamesOutput.value;
+			
+            });
+		}
+		</script>
+
+		
+		
+		
+		<h2> Nom</h2>
+		<p>Entrez la valeur</p>
+		
+		<form action="./CarnetDeBord.html">
+		<fieldset>
+		<label>NOM : </label>
+	    <input type="text" id = "summonerNames"/>
+		<br>
+	    <input type = "button" value = "SENDING" onclick = "TESTING()"/>
+		<br>
+		<label id="rep">Réponse </label>
+		<input type = "text" id = "summonerNamesOutput" />
+		</fieldset>
+		
+		</form>
+	</div>
+	<!--	<script>
+		var trouvernom = {
+		url: https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerNames}?api_key=RGAPI-b5ec840e-7ddd-4a00-88b2-9efaffdbbc23
+		}
+		</script>		
+		
+	 	<p>le niveau</p>		
+		<output name="nom"></output>	-->
+		
+		
+	
+	
+	<div id="navigation">
+		<h2> Sommaire </h2>
+	<ul>
+		<li><a href="./index.html">Accueil</a></li>
+		<li><a href="./Joueurs.html">Joueurs</a></li>
+		<li><a href="./Clash.html">Clash</a></li>
+		<li><a href="./Champions.html">Champions</a></li>
+		<li><a href="./Apropos.html">À propos</a></li>
+	</ul>
+	</div>
+</div>
+</div>
+	
+  </body>
+</html>

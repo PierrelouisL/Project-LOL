@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Fancy in game view for league of legends</title>
+		<link rel="stylesheet" href="ingame.css">
+		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	</head>
+		
+	<body>
+		<div id="global">
+
+			<div class="menu">
+				<button class="btn">Menu</button>
+				<div class="dropdown-content">
+					<a href="Profile.html">Profile</a>
+					<a href="index.html">Home</a>
+					<a href="Champions.html">Champions</a>
+					<a href="about.html">À propos</a>
+				</div>
+			</div>
+			<div id="ingame_content">
+				<div id="left">
+					<table>
+						<tr>
+							<th scope="row">pseudo1</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Aatrox_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo2</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Ahri_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo3</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Alistar_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo4</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Akali_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo5</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Amumu_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+
+					</table>
+				</div>
+				<div id="right">
+					<table id="rightarray">
+						<tr>
+							<th scope="row">pseudo1</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Aatrox_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo2</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Ahri_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo3</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Alistar_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo4</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Akali_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+						<tr>
+							<th scope="row">pseudo5</th>
+							<td><img src="D:\Ecole_inge\Projet_API\Fancy_ingame_view\dragontail-9.3.1\img\champion\tiles\Amumu_0.jpg" width="76" height="76" style="float:left" /></td>
+							<td>KDA</td>
+							<td>items/cs</td>
+							<td>gold</td>
+						</tr>
+
+					</table>
+				</div>
+			</div>
+			<div class="User_input">
+				<input type="text" class="username_in" autocomplete="off" placeholder="Joueur en pleine partie..." autofocus>
+				<button class="search_button" type="button" onclick="Look_player()">Rechercher</button>
+				<div class="region_menu">
+					<select class="form-control" id="regions">
+						<option value="BR1">BRAZIL</option>
+						<option value="EUN1">EUNE</option>
+						<option value="EUW1" selected="selected">EUW</option>
+						<option value="JP1">JAPAN</option>
+						<option value="KR">KOREA</option>
+						<option value="LA1">LA1</option>
+						<option value="LA2">LA2</option>
+						<option value="NA1">N AMERICA</option>
+						<option value="OC1">OCEANIA</option>
+						<option value="RU">RUSSIA</option>
+						<option value="TR1">TURQUIE</option>
+					</select>
+				</div>
+			</div>
+			<img src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/4.png" id="summonerIcon" style="float:left" />
+		</div>
+		<script src="Ingame.js"></script>
+	</body>
+
+</html>

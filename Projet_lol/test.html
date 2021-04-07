@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    function TESTING(){
+	<!-- var name = summonerNames.value; -->
+	<!-- summonerNamesOutput.value =  name; -->
+	
+			<!-- $.getJSON('http://time.jsontest.com', function(data) { -->
+			
+			<!-- var Date = ${data.date}; -->
+			<!-- var Time = ${data.time}; -->
+			<!-- var Unixtime = ${data.milliseconds_since_epoch}; -->
+            <!-- });		 -->
+			<!-- DateOUT.value = Date; -->
+		<!-- } -->
+			$.getJSON('http://time.jsontest.com', function(data) {
+        
+        <!-- var text = `Date: ${data.date}<br> -->
+                    <!-- Time: ${data.time}<br> -->
+                    <!-- Unix time: ${data.milliseconds_since_epoch}<br>`; -->
+                    
+        summonerNamesOutput.value = `${data.date}`
+		
+        <!-- $(".mypanel").html(text); -->
+    });
+	}
+    </script>
+	
+	<form action="./test.html">
+		<fieldset>
+		<label>NOM : </label>
+	    <input type="text" id = "summonerNames"/>
+		<br>
+	    <input type = "button" value = "SENDING" onclick = "TESTING()"/>
+		<br>
+		<label>Réponse </label>
+		<input type = "text" id = "summonerNamesOutput" />
+		</fieldset>
+    
+</body>
+</html>

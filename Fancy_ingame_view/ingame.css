@@ -135,4 +135,7 @@ body {
 .summonerIcon {
 	/*visibility: hidden;*/
 	width: 200px;
+	float: left;
+	position: absolute;
+	top: 70%;
 }

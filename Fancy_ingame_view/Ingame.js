@@ -1,6 +1,9 @@
+var alreadylooked = 0;
+
 document.getElementsByClassName("username_in")[0].addEventListener('keydown', function (event) {
     //console.log(event);
-    if (event.key == "Enter") {
+    if (event.key == "Enter" && !alreadylooked) {
+        alreadylooked = 1;
         Look_player();
     } else {
         return false;
@@ -8,8 +11,11 @@ document.getElementsByClassName("username_in")[0].addEventListener('keydown', fu
 });
 
 document.getElementsByClassName("search_button")[0].addEventListener('click', function () {
-    console.log('test');
-    Look_player();
+    //console.log('test');
+    if (alreadylooked) {
+        alreadylooked = 1;
+        Look_player();
+    }
 });
 
 function Look_player() {
@@ -19,7 +25,6 @@ function Look_player() {
     $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + Username + '/1', function (data) { /*Problème de CORS à cause de la region*/
         GetUserInfos(`${data.profileIconId}`, `${data.id}`, `${data.accountId}`, `${data.summonerLevel}`)
     });
-
 }
 
 function GetUserInfos(icon, id, accId, level) {
@@ -42,9 +47,23 @@ function SetGameData(id) {
     $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + id + '/10', function (data) {
         let playerlist = data.participants;
         for (var i in playerlist) {
-            //document.getElementById("pseudo" + i).innerHTML = playerlist[i].summonerName.key;
-            console.log(playerlist[i].summonerName.key);
+
+            ///////////////////// START USERNAME ////////////////////////////////
+            //console.log("pseudo" + i);
+            document.getElementById("pseudo" + i).innerHTML = playerlist[i].summonerName;
+            //console.log(playerlist[i].summonerName);
+            ////////////////////// END USERNAME /////////////////////////////////
+
+            ///////////////////// START CHAMPION ////////////////////////////////
+            //console.log(playerlist[i].championId);
+            document.getElementById("i" + i).src = "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/" + Which_Champ(playerlist[i].championId) + "_0.jpg";
+            //console.log(Which_Champ(playerlist[i].championId));
+            ////////////////////// END CHAMPION /////////////////////////////////
+
+
         }
+        let startTime = data.gameStartTime;  // In timestamp*
+        console.log(startTime.toISOString());
     });
 }
 

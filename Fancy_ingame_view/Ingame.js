@@ -39,11 +39,6 @@ function GetUserInfos(icon, id, accId, level) {
 }
 
 function SetGameData(id) {
-    document.getElementById("rightarray").style.visibility = 'visible';
-    document.getElementById("leftarray").style.visibility = 'visible';
-    document.getElementsByClassName("username_in")[0].style.visibility = 'hidden';
-    document.getElementsByClassName("search_button")[0].style.visibility = 'hidden';
-    document.getElementsByClassName("form-control")[0].style.visibility = 'hidden';
     $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + id + '/10', function (data) {
         let playerlist = data.participants;
         for (var i in playerlist) {
@@ -65,6 +60,19 @@ function SetGameData(id) {
         let startTime = data.gameStartTime;  // In timestamp*
         console.log(startTime.toISOString());
     });
+    if (document.getElementById("pseudo0").innerHTML != "pseudo0") {
+        // The player is in game!
+        document.getElementById("rightarray").style.visibility = 'visible';
+        document.getElementById("leftarray").style.visibility = 'visible';
+        document.getElementsByClassName("username_in")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("search_button")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("form-control")[0].style.visibility = 'hidden';
+    } else {
+        // Player is not in a game!
+        alert("Player not in game!");
+    }
+
+
 }
 
 function Which_Champ(id_champ) {

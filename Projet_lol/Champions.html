@@ -4,7 +4,8 @@
   <head>
   <meta charset="utf-8" />
     <title>Site ISN</title>
-	 <link rel="stylesheet" href="Css3.css">
+		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="Css3.css">
   </head>
   
   <body>
@@ -17,8 +18,52 @@
 	<div id="centre">
 
 	<div id="contenu">
-		<h2> truc </h2>
-		<p>blablablabalbalbal</p>
+	
+		<script type = "text/javascript">
+		
+			function displayImageChamp(){
+				var nomDeChampion= nameChampInput.value;
+				var numDeSkinChampion= numskinInput.value;
+				if (numDeSkinChampion=='')
+				{
+				numDeSkinChampion=0;
+				}
+				var nameChamp = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+nomDeChampion+'_'+numDeSkinChampion+'.jpg';
+				nameChampOutput.value =  nameChamp;
+				
+				document.getElementById("image1").src=nameChamp;
+			} // end displayName
+		
+		</script>
+	
+		<h2> Image pick</h2>
+		<p>Entrez le nom</p>
+		
+		<fieldset>
+		<label>NOM : </label>
+	    <input type="text" id = "nameChampInput"/>
+		
+		<label>Numéro skin : </label>
+		<input type="text" id = "numskinInput"/>
+		<br />
+		
+	    <input type = "button" value = "SENDING" onclick = "displayImageChamp()"/>
+		<br />
+		
+		<label>Réponse </label>
+		<input type = "text" id = "nameChampOutput" />
+		<br />
+		
+		
+		<img id= image1 src = http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_17.jpg
+		alt="ca ne fonctionne pas encore"
+		width="847"
+		height="500">
+		<br>
+		
+		</fieldset>	
+		
+		
 	</div>
 	
 	<div id="navigation">

@@ -23,7 +23,7 @@ function Look_player() {
     var region = document.getElementById("regions").value;
     //console.log(Which_Champ("84"));
     $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + Username + '/1', function (data) { /*Problème de CORS à cause de la region*/
-        GetUserInfos(`${data.profileIconId}`, `${data.id}`, `${data.accountId}`, `${data.summonerLevel}`)
+        GetUserInfos(data.profileIconId, data.id, data.accountId, data.summonerLevel)
     });
 }
 

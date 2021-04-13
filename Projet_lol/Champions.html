@@ -32,7 +32,54 @@
 				nameChampOutput.value =  nameChamp;
 				
 				document.getElementById("image1").src=nameChamp;
-			} // end displayName
+			//} // end displayName
+			
+			//function FoundSkin() {
+				var langue;
+				for (var optionregion of document.getElementById('regions').options) {
+					if (optionregion.selected) {
+					  langue=optionregion.value;
+					  //console.log(langue);
+					}
+				}
+				
+				var selectionSkin = document.getElementById('numskinInput');
+				var nomDeChampion= nameChampInput.value;
+				
+				var lengthSkins=selectionSkin.length;
+				console.log('nombre opt',lengthSkins);
+				for (var it = 0; it < lengthSkins; it+=1) {
+						//console.log('remove',it,selectionSkin.it);
+						//console.log(selectionSkin.length);
+						selectionSkin.remove(selectionSkin.it);
+				}
+				
+				$.getJSON('http://ddragon.leagueoflegends.com/cdn/11.7.1/data/'+langue+'/champion/'+nomDeChampion+'.json', function (data) {
+					
+					//console.log('http://ddragon.leagueoflegends.com/cdn/11.7.1/data/'+langue+'/champion/'+nomDeChampion+'.json');
+					//console.log(data.data);
+					
+					var LesSkinsTEMP = data.data;
+					var tempChamp;
+					for (var ir in LesSkinsTEMP) {
+						//console.log(LesSkinsTEMP[ir]);
+						LesSkinsTEMP=LesSkinsTEMP[ir];
+						tempChamp=ir;
+					}
+				
+					//var LesSkins = data.data.Alistar.skins;
+					var LesSkins = LesSkinsTEMP.skins;
+					
+					for (var i=0; i < LesSkins.length; i++) {
+						//console.log('3:',i,LesSkins[i].name,LesSkins[i].num);
+						var option = document.createElement("option");
+						option.text = LesSkins[i].name;
+						option.value = LesSkins[i].num;
+						selectionSkin.add(option);
+					}
+				});
+				
+			}
 		
 		</script>
 	
@@ -40,11 +87,29 @@
 		<p>Entrez le nom</p>
 		
 		<fieldset>
+		<select id="regions">
+						<option value="fr_FR" selected="selected">French </option>
+						<option value="en_US">English </option>
+						<option value="es_ES">Spanish </option>
+						
+					</select>
+		<br />
+		
 		<label>NOM : </label>
-	    <input type="text" id = "nameChampInput"/>
+	    <input type="text" id = "nameChampInput" placeholder="Ex: Alistar"/>
 		
 		<label>Numéro skin : </label>
+		<!--
 		<input type="text" id = "numskinInput"/>
+		<br />
+		-->
+
+		
+			<select id="numskinInput">
+				
+				
+			</select>
+		
 		<br />
 		
 	    <input type = "button" value = "SENDING" onclick = "displayImageChamp()"/>
@@ -63,7 +128,7 @@
 		
 		</fieldset>	
 		
-		
+			
 	</div>
 	
 	<div id="navigation">

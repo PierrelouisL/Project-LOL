@@ -79,6 +79,9 @@
 					}
 				});
 				
+				document.getElementById('showSkin').hidden = false;
+				document.getElementById('numskinInput').hidden = false;
+				
 			}
 		
 		</script>
@@ -87,7 +90,7 @@
 		<p>Entrez le nom</p>
 		
 		<fieldset>
-		<select id="regions">
+		<select id="regions" autofocus>
 						<option value="fr_FR" selected="selected">French </option>
 						<option value="en_US">English </option>
 						<option value="es_ES">Spanish </option>
@@ -98,16 +101,8 @@
 		<label>NOM : </label>
 	    <input type="text" id = "nameChampInput" placeholder="Ex: Alistar"/>
 		
-		<label>Numéro skin : </label>
-		<!--
-		<input type="text" id = "numskinInput"/>
-		<br />
-		-->
-
-		
-			<select id="numskinInput">
-				
-				
+		<label id='showSkin' hidden>Skin : </label>
+			<select id="numskinInput" hidden>		
 			</select>
 		
 		<br />

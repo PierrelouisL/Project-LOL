@@ -3,7 +3,7 @@
 
   <head>
   <meta charset="utf-8" />
-    <title>Site ISN</title>
+    <title>Site</title>
 		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" href="Css3.css">
   </head>
@@ -12,7 +12,7 @@
 <div id="global">
   
 	<div id="entete">
-		<h1> projet </h1>
+		<h1> Champions </h1>
 	</div>
   
 	<div id="centre">
@@ -47,9 +47,9 @@
 				var nomDeChampion= nameChampInput.value;
 				
 				var lengthSkins=selectionSkin.length;
-				console.log('nombre opt',lengthSkins);
+				//console.log('nombre opt',lengthSkins);
 				for (var it = 0; it < lengthSkins; it+=1) {
-						//console.log('remove',it,selectionSkin.it);
+						//console.log('remove',it);
 						//console.log(selectionSkin.length);
 						selectionSkin.remove(selectionSkin.it);
 				}
@@ -70,6 +70,12 @@
 					//var LesSkins = data.data.Alistar.skins;
 					var LesSkins = LesSkinsTEMP.skins;
 					
+					var LaBio = LesSkinsTEMP.lore;
+					var repBIO = document.getElementById("Bio");
+					repBIO.innerHTML = LaBio;
+					//console.log(LaBio,LaBio.value);
+					
+					
 					for (var i=0; i < LesSkins.length; i++) {
 						//console.log('3:',i,LesSkins[i].name,LesSkins[i].num);
 						var option = document.createElement("option");
@@ -79,15 +85,18 @@
 					}
 				});
 				
+				var repName = document.getElementById("nameOfChamp");
+				repName.innerHTML = nomDeChampion;
+				
 				document.getElementById('showSkin').hidden = false;
 				document.getElementById('numskinInput').hidden = false;
-				
+				document.getElementById('Bio').hidden = false;
+				document.getElementById('nameOfChamp').hidden = false;
 			}
 		
 		</script>
 	
-		<h2> Image pick</h2>
-		<p>Entrez le nom</p>
+		<h2> Champions Look</h2>
 		
 		<fieldset>
 		<select id="regions" autofocus>
@@ -114,12 +123,17 @@
 		<input type = "text" id = "nameChampOutput" />
 		<br />
 		
+		<h2 id='nameOfChamp' hidden> Champions Look</h2>
+		<br />
 		
-		<img id= image1 src = http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_17.jpg
+		<img id= image1 src = https://loltracker.com/images/easyblog_images/576/LOL_PROMOART_4.jpg
 		alt="ca ne fonctionne pas encore"
 		width="847"
 		height="500">
 		<br>
+		
+		<p id='Bio' hidden>Lore : </p>
+		<br />
 		
 		</fieldset>	
 		

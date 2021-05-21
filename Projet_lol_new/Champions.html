@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+    <title>Site</title>
+		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="Css3.css">
+  </head>
+  
+  <body>
+<div id="global">
+  
+	<div id="entete">
+		<h1> Champions </h1>
+	</div>
+  
+	<div id="centre">
+
+	<div id="contenu">
+	
+		<script type = "text/javascript">
+		
+			function displayImageChamp(){
+				var nomDeChampion= nameChampInput.value;
+				var numDeSkinChampion= numskinInput.value;
+				if (numDeSkinChampion=='')
+				{
+				numDeSkinChampion=0;
+				}
+				var nameChamp = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+nomDeChampion+'_'+numDeSkinChampion+'.jpg';
+				nameChampOutput.value =  nameChamp;
+				
+				document.getElementById("image1").src=nameChamp;
+			//} // end displayName
+			
+			//function FoundSkin() {
+				var langue;
+				for (var optionregion of document.getElementById('regions').options) {
+					if (optionregion.selected) {
+					  langue=optionregion.value;
+					  //console.log(langue);
+					}
+				}
+				
+				var selectionSkin = document.getElementById('numskinInput');
+				var nomDeChampion= nameChampInput.value;
+				
+				var lengthSkins=selectionSkin.length;
+				//console.log('nombre opt',lengthSkins);
+				for (var it = 0; it < lengthSkins; it+=1) {
+						//console.log('remove',it);
+						//console.log(selectionSkin.length);
+						selectionSkin.remove(selectionSkin.it);
+				}
+				
+				$.getJSON('http://ddragon.leagueoflegends.com/cdn/11.7.1/data/'+langue+'/champion/'+nomDeChampion+'.json', function (data) {
+					
+					//console.log('http://ddragon.leagueoflegends.com/cdn/11.7.1/data/'+langue+'/champion/'+nomDeChampion+'.json');
+					//console.log(data.data);
+					
+					var LesSkinsTEMP = data.data;
+					var tempChamp;
+					for (var ir in LesSkinsTEMP) {
+						//console.log(LesSkinsTEMP[ir]);
+						LesSkinsTEMP=LesSkinsTEMP[ir];
+						tempChamp=ir;
+					}
+				
+					//var LesSkins = data.data.Alistar.skins;
+					var LesSkins = LesSkinsTEMP.skins;
+					
+					var LaBio = LesSkinsTEMP.lore;
+					var repBIO = document.getElementById("Bio");
+					repBIO.innerHTML = LaBio;
+					//console.log(LaBio,LaBio.value);
+					
+					
+					for (var i=0; i < LesSkins.length; i++) {
+						//console.log('3:',i,LesSkins[i].name,LesSkins[i].num);
+						var option = document.createElement("option");
+						option.text = LesSkins[i].name;
+						option.value = LesSkins[i].num;
+						selectionSkin.add(option);
+					}
+				});
+				
+				var repName = document.getElementById("nameOfChamp");
+				repName.innerHTML = nomDeChampion;
+				
+				document.getElementById('showSkin').hidden = false;
+				document.getElementById('numskinInput').hidden = false;
+				document.getElementById('Bio').hidden = false;
+				document.getElementById('nameOfChamp').hidden = false;
+			}
+		
+		</script>
+	
+		<h2> Champions Look</h2>
+		
+		<fieldset>
+		<select id="regions" autofocus>
+						<option value="fr_FR" selected="selected">French </option>
+						<option value="en_US">English </option>
+						<option value="es_ES">Spanish </option>
+						
+					</select>
+		<br />
+		
+		<label>NOM : </label>
+	    <input type="text" id = "nameChampInput" placeholder="Ex: Alistar"/>
+		
+		<label id='showSkin' hidden>Skin : </label>
+			<select id="numskinInput" hidden>		
+			</select>
+		
+		<br />
+		
+	    <input type = "button" value = "SENDING" onclick = "displayImageChamp()"/>
+		<br />
+		
+		<input type = "text" id = "nameChampOutput" hidden/>
+		<br />
+		
+		<h2 id='nameOfChamp' hidden> Champions Look</h2>
+		<br />
+		
+		<img id= image1 src = https://loltracker.com/images/easyblog_images/576/LOL_PROMOART_4.jpg
+		alt="Choix incorecte"
+		width="847"
+		height="500">
+		<br>
+		
+		<p id='Bio' hidden>Lore : non existant</p>
+		<br />
+		
+		</fieldset>	
+		
+			
+	</div>
+	
+	<div id="navigation">
+		<h2> Sommaire </h2>
+	<ul>
+		<li><a href="./index.html">Accueil</a></li>
+		<li><a href="./Joueurs.html">Joueurs</a></li>
+		<li><a href="./Ingame.html">In Game</a></li>
+		<li><a href="./Champions.html">Champions</a></li>
+		<li><a href="./Apropos.html">À propos</a></li>
+	</ul>
+	</div>
+</div>
+</div>
+	
+  </body>
+</html>

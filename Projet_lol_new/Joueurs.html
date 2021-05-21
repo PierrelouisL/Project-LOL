@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+    <title>Site</title>
+	    <script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	 <link rel="stylesheet" href="Css3.css">
+  </head>
+  
+  <body>
+<div id="global">
+  
+	<div id="entete">
+		<h1> Joueurs </h1>
+	</div>
+  
+	<div id="centre">
+
+	<div id="contenu">
+	
+		<script type = "text/javascript">
+		
+		function display(){
+			var nameChamp = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+nameChampInput.value+'_0.jpg';
+			nameChampOutput.value =  nameChamp;
+		} // end displayName
+		
+		</script>
+		
+		
+		<script>
+		function Which_Champ(id_champ) {
+			var champion;
+			$.ajax({
+				url: "https://ddragon.leagueoflegends.com/cdn/11.6.1/data/fr_FR/champion.json",
+				async: false,
+				dataType: 'json',
+				success: function (d) {
+					let championList = d.data;
+					for (var i in championList) {
+						if (championList[i].key == id_champ) {
+							champion = championList[i].id;
+							if (champion == "Fiddlesticks") {
+								champion = "FiddleSticks";
+							}
+							return champion;
+						}
+						//console.log(championList[i].id + " | " + championList[i].key);
+					}
+				}
+			});
+			return champion;
+		}
+		
+		function TESTING()
+		{
+			var nameInput = summonerNamesInput.value;
+			<!-- $.getJSON('http://time.jsontest.com', function(data) { -->
+			$.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/Debug/summoner/euw1/'+nameInput, function(data) {    
+			
+				<!-- summonerNamesOutput.value = data.name  -->
+				<!-- summonerLevel.value = data.summonerLevel -->
+				
+				var TempsummonerNamesOutput = data.name;	//console.log(TempsummonerNamesOutput);
+				var repsummonerNamesOutput = document.getElementById("summonerNamesOutput");
+				repsummonerNamesOutput.innerHTML = "Nom: "+TempsummonerNamesOutput;
+				
+				var TempsummonerLevel = data.summonerLevel;	//console.log(TempsummonerNamesOutput);
+				var repsummonerLevel = document.getElementById("summonerLevel");
+				repsummonerLevel.innerHTML = "Niveau: "+TempsummonerLevel;
+				
+				var TempSummIcon =data.profileIconId;
+				var SummIcon = 'http://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/'+TempSummIcon+'.png';				
+				document.getElementById("image1").src=SummIcon;
+				
+				var idSummoner = data.id;
+				//var repidSummoner = document.getElementById("nameMaitrise");
+				//repidSummoner.innerHTML = "Champions: "+idSummoner;
+				
+				$.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/'+idSummoner+'/2', function(data2) {  
+					
+					var idrep = data2[0].championId;// console.log(idrep);
+					var idNiveauMaitrise = data2[0].championLevel;
+					var idPointMaitrise = data2[0].championPoints;
+					
+					repChampId = Which_Champ(idrep);
+					var repidSummoner = document.getElementById("nameMaitrise");
+					repidSummoner.innerHTML = "Champions: "+repChampId;
+					
+					var repidNiveauMaitrise = document.getElementById("niveauMaitrise");
+					repidNiveauMaitrise.innerHTML = "Niveau: "+idNiveauMaitrise;
+					
+					var repPointMaitrise = document.getElementById("pointMaitrise");
+					repPointMaitrise.innerHTML = idPointMaitrise+" Points";
+					
+					
+					var idrep1 = data2[1].championId;// console.log(idrep1);
+					var idNiveauMaitrise1 = data2[1].championLevel;
+					var idPointMaitrise1 = data2[1].championPoints;
+					
+					repChampId1 = Which_Champ(idrep1);
+					var repidSummoner1 = document.getElementById("nameMaitrise2");
+					repidSummoner1.innerHTML = "Champions: "+repChampId1;
+					
+					var repidNiveauMaitrise1 = document.getElementById("niveauMaitrise2");
+					repidNiveauMaitrise1.innerHTML = "Niveau: "+idNiveauMaitrise1;
+					
+					var repPointMaitrise1 = document.getElementById("pointMaitrise2");
+					repPointMaitrise1.innerHTML = idPointMaitrise1+" Points";
+					
+					
+					var idrep2 = data2[2].championId;// console.log(idrep2);
+					var idNiveauMaitrise2 = data2[2].championLevel;
+					var idPointMaitrise2 = data2[2].championPoints;
+					
+					repChampId2 = Which_Champ(idrep2);
+					var repidSummoner2 = document.getElementById("nameMaitrise3");
+					repidSummoner2.innerHTML = "Champions: "+repChampId2;
+					
+					var repidNiveauMaitrise2 = document.getElementById("niveauMaitrise3");
+					repidNiveauMaitrise2.innerHTML = "Niveau: "+idNiveauMaitrise2;
+					
+					var repPointMaitrise2 = document.getElementById("pointMaitrise3");
+					repPointMaitrise2.innerHTML = idPointMaitrise2+" Points";
+					
+					
+					var iconMaitrise1 = 'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/'+repChampId+'_0.jpg';				
+					document.getElementById("image2").src=iconMaitrise1;
+					
+					var iconMaitrise2 = 'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/'+repChampId1+'_0.jpg';				
+					document.getElementById("image3").src=iconMaitrise2;
+					
+					var iconMaitrise3 = 'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/'+repChampId2+'_0.jpg';				
+					document.getElementById("image4").src=iconMaitrise3;
+					
+					
+				});
+				//http://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/588.png
+			
+            });
+						
+			document.getElementById('summonerNamesOutput').hidden = false;
+			document.getElementById('summonerLevel').hidden = false;
+			document.getElementById('showRep').hidden = false;
+			document.getElementById('summonerIcon').hidden = false;
+			document.getElementById('image1').hidden = false;
+			document.getElementById('carret').hidden = false;	// le seul hidden neccessaire en realiter
+			document.getElementById('carret2').hidden = false;
+		}
+		</script>
+
+		
+		
+		
+		<h2> Nom</h2>
+		<p>Entrez le nom du joueur</p>
+		
+		<fieldset>
+		<label>NOM : </label>
+	    <input type="text" id = "summonerNamesInput"/>
+		<br>
+	    <input type = "button" value = "SENDING" onclick = "TESTING()"/>
+		</fieldset>
+		<br>
+		
+		<fieldset id='carret' hidden>
+		<label id='showRep' hidden>Réponse </label>
+		<br>
+		<p id='summonerNamesOutput' hidden>Nom : </p>
+		<br>
+		<p id='summonerLevel' hidden>Niveau : </p>
+		<br>
+		<p id='summonerIcon' hidden>Icone : </p>
+		<br>
+		<img id= image1 src = https://loltracker.com/images/easyblog_images/576/LOL_PROMOART_4.jpg
+		alt="ca ne fonctionne pas encore"
+		width="300"
+		height="300"
+		hidden>
+		<br>		
+		</fieldset>
+		<br>
+		<fieldset id='carret2' hidden>
+		
+		<table id='tableMaitrise'>
+		<th>
+		<label id='maitrise' >Maitrise 1</label>
+		<br>
+		<p id='nameMaitrise' >Nom : </p>
+		<br>
+		<img id= image2 src = https://lol
+		alt="ca ne fonctionne pas encore"
+		width="200"
+		height="200">
+		<br>
+		<p id='niveauMaitrise' >Niveau : </p>
+		<br>
+		<p id='pointMaitrise' >Point : </p>
+		<br>		
+		</th>
+		
+		<th>
+		<label id='maitrise2' >Maitrise 2</label>
+		<br>
+		<p id='nameMaitrise2' >Nom : </p>
+		<br>
+		<img id= image3 src = https://lol
+		alt="ca ne fonctionne pas encore"
+		width="200"
+		height="200">
+		<br>
+		<p id='niveauMaitrise2' >Niveau : </p>
+		<br>
+		<p id='pointMaitrise2' >Point : </p>
+		<br>		
+		</th>
+		
+		<th>
+		<label id='maitrise3' >Maitrise 3</label>
+		<br>
+		<p id='nameMaitrise3' >Nom : </p>
+		<br>
+		<img id= image4 src = https://lol
+		alt="ca ne fonctionne pas encore"
+		width="200"
+		height="200">
+		<br>
+		<p id='niveauMaitrise3' >Niveau : </p>
+		<br>
+		<p id='pointMaitrise3' >Point : </p>
+		<br>	
+		</tr>
+		</table>
+		
+		</fieldset>
+		
+		
+  
+	</div>
+	<!--	<script>
+		var trouvernom = {
+		url: https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerNames}?api_key=RGAPI-b5ec840e-7ddd-4a00-88b2-9efaffdbbc23
+		}
+		</script>		
+		
+	 	<p>le niveau</p>		
+		<output name="nom"></output>	-->
+		
+		
+	
+	
+	<div id="navigation">
+		<h2> Sommaire </h2>
+	<ul>
+		<li><a href="./index.html">Accueil</a></li>
+		<li><a href="./Joueurs.html">Joueurs</a></li>
+		<li><a href="./Ingame.html">In Game</a></li>
+		<li><a href="./Champions.html">Champions</a></li>
+		<li><a href="./Apropos.html">À propos</a></li>
+	</ul>
+	</div>
+</div>
+</div>
+	
+  </body>
+</html>

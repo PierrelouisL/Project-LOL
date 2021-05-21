@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Fancy in game view for league of legends</title>
+		<link rel="stylesheet" href="ingame.css">
+		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+	</head>
+		
+	<body>
+		<div id="global">
+			<div class="menu">
+				<button class="btn">Menu</button>
+				<div class="dropdown-content">
+					<a href="./index.html">Accueil</a>
+					<a href="./Joueurs.html">Joueurs</a>
+					<a href="./Champions.html">Champions</a>
+					<a href="./Apropos.html">À propos</a>
+				</div>
+			</div>
+			<h1 id="game_type" style="text-align:center;">Ranked_5v5</h1>
+			<div id="ingame_content">
+					<table id="team1"> <!--AKA blue team-->
+						<tr class="">
+							<th colspan="3" id="pseudo0" style="background-color: #2796BC">pseudoB0</th>
+
+							<th colspan="3" id="pseudo1" style="background-color: #2796BC">pseudoB1</th>
+
+							<th colspan="3" id="pseudo2" style="background-color: #2796BC">pseudoB2</th>
+
+							<th colspan="3" id="pseudo3" style="background-color: #2796BC">pseudoB3</th>
+
+							<th colspan="3" id="pseudo4" style="background-color: #2796BC">pseudoB4</th>
+						</tr>
+						<tr>
+							<th rowspan="2" colspan="2"><img id="i0" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s0_1" src="Flash.png" width="35" height="35" /><img id="s0_2" src="Flash.png" width="35" height="35" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i1" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s1_1" src="Flash.png" width="35" height="35" /><img id="s1_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i2" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s2_1" src="Flash.png" width="35" height="35"/><img id="s2_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i3" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s3_1" src="Flash.png" width="35" height="35"/><img id="s3_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i4" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s4_1" src="Flash.png" width="35" height="35"/><img id="s4_2" src="Flash.png" width="35" height="35"/></td>
+
+						</tr>
+						<tr>
+							<td><img id="r0_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35" />
+								<img id="r0_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35" /></td>
+
+							<td><img id="r1_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r1_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r2_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r2_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r3_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r3_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r4_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r4_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+						</tr>
+						<tr>
+							<th colspan="3" id="rank0">WOOD4</th>
+
+							<th colspan="3" id="rank1">WOOD4</th>
+
+							<th colspan="3" id="rank2">WOOD4</th>
+
+							<th colspan="3" id="rank3">WOOD4</th>
+
+							<th colspan="3" id="rank4">WOOD4</th>
+						</tr>
+						<tr>
+							<th colspan="3" id="role0">Toplaner</th>
+
+							<th colspan="3" id="role1">Jungler</th>
+
+							<th colspan="3" id="role2">Midlaner</th>
+
+							<th colspan="3" id="role3">AD Carry</th>
+
+							<th colspan="3" id="role4">Support</th>
+						</tr>
+					</table>
+				<br/>
+					<table id="team2"> <!--AKA red team-->
+						<tr>
+							<th colspan="3" id="pseudo5" style="background-color: #E9422E">pseudoR0</th>
+
+							<th colspan="3" id="pseudo6" style="background-color: #E9422E">pseudoR1</th>
+
+							<th colspan="3" id="pseudo7" style="background-color: #E9422E">pseudoR2</th>
+
+							<th colspan="3" id="pseudo8" style="background-color: #E9422E">pseudoR3</th>
+
+							<th colspan="3" id="pseudo9" style="background-color: #E9422E">pseudoR4</th>
+						</tr>
+						<tr>
+							<th rowspan="2" colspan="2"><img id="i5" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s5_1" src="Flash.png" width="35" height="35"/><img id="s5_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i6" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s6_1" src="Flash.png" width="35" height="35"/><img id="s6_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i7" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s7_1" src="Flash.png" width="35" height="35"/><img id="s7_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i8" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s8_1" src="Flash.png" width="35" height="35"/><img id="s8_2" src="Flash.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i9" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s9_1" src="Flash.png" width="35" height="35"/><img id="s9_2" src="Flash.png" width="35" height="35"/></td>
+
+						</tr>
+						<tr>
+							<td><img id="r5_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r5_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r6_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r6_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r7_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r7_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r8_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r8_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<td><img id="r9_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/>
+								<img id="r9_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+						</tr>
+						<tr>
+							<th colspan="3" id="rank5">WOOD4</th>
+
+							<th colspan="3" id="rank6">WOOD4</th>
+
+							<th colspan="3" id="rank7">WOOD4</th>
+
+							<th colspan="3" id="rank8">WOOD4</th>
+
+							<th colspan="3" id="rank9">WOOD4</th>
+						</tr>
+						<tr>
+							<th colspan="3" id="role5">Toplaner</th>
+
+							<th colspan="3" id="role6">Jungler</th>
+
+							<th colspan="3" id="role7">Midlaner</th>
+
+							<th colspan="3" id="role8">AD Carry</th>
+
+							<th colspan="3" id="role9">Support</th>
+						</tr>
+					</table>
+			</div>
+			<div class="User_input">
+				<input type="text" class="username_in" autocomplete="off" placeholder="Joueur en pleine partie..." autofocus>
+				<button class="search_button" type="button" onclick="Look_player()">Rechercher</button>
+				<div class="region_menu">
+					<select class="form-control" id="regions">
+						<option value="BR1">BRAZIL</option>
+						<option value="EUN1">EUNE</option>
+						<option value="EUW1" selected="selected">EUW</option>
+						<option value="JP1">JAPAN</option>
+						<option value="KR">KOREA</option>
+						<option value="LA1">LA1</option>
+						<option value="LA2">LA2</option>
+						<option value="NA1">N AMERICA</option>
+						<option value="OC1">OCEANIA</option>
+						<option value="RU">RUSSIA</option>
+						<option value="TR1">TURQUIE</option>
+					</select>
+				</div>
+			</div>
+			<img src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/4.png" width="128" height="128" id="summonerIcon" style="position: absolute; top: 70%" />
+		</div>
+		<script src="Ingame.js"></script>
+	</body >
+
+</html >

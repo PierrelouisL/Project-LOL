@@ -12,6 +12,7 @@ document.getElementsByClassName("username_in")[0].addEventListener('keydown', fu
 
 document.getElementsByClassName("search_button")[0].addEventListener('click', function () {
     //console.log('test');
+
     if (alreadylooked) {
         alreadylooked = 1;
         Look_player();
@@ -39,10 +40,13 @@ function GetUserInfos(icon, id, accId, level) {
 }
 
 function SetGameData(id) {
-    $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + id + '/10', function (data) {
+    $.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/' + id + '/11', function (data) {
         let playerlist = data.participants;
+        document.getElementById("game_type").innerHTML = Which_Queue(data.gameQueueConfigId);
+        console.log(Which_Queue(data.gameQueueConfigId));
         for (var i in playerlist) {
-
+            let team_id = playerlist[i].teamId;
+            let spell1Id = playerlist[i].spell1Id;
             ///////////////////// START USERNAME ////////////////////////////////
             //console.log("pseudo" + i);
             document.getElementById("pseudo" + i).innerHTML = playerlist[i].summonerName;
@@ -57,20 +61,21 @@ function SetGameData(id) {
 
 
         }
-        let startTime = data.gameStartTime;  // In timestamp*
-        console.log(startTime.toISOString());
+        //let startTime = data.gameStartTime;  // In timestamp*
+        //console.log(startTime.toISOString());
     });
-    if (document.getElementById("pseudo0").innerHTML != "pseudo0") {
+    //if (document.getElementById("pseudo0").innerHTML != "pseudoB0") {
         // The player is in game!
-        document.getElementById("rightarray").style.visibility = 'visible';
-        document.getElementById("leftarray").style.visibility = 'visible';
+        document.getElementById("team1").style.visibility = 'visible';
+        document.getElementById("team2").style.visibility = 'visible';
+        document.getElementById("game_type").style.visibility = 'visible';
         document.getElementsByClassName("username_in")[0].style.visibility = 'hidden';
         document.getElementsByClassName("search_button")[0].style.visibility = 'hidden';
         document.getElementsByClassName("form-control")[0].style.visibility = 'hidden';
-    } else {
+    /*} else {
         // Player is not in a game!
         alert("Player not in game!");
-    }
+    }*/
 
 
 }
@@ -86,6 +91,9 @@ function Which_Champ(id_champ) {
             for (var i in championList) {
                 if (championList[i].key == id_champ) {
                     champion = championList[i].id;
+                    if (champion == "Fiddlesticks") {
+                        champion = "FiddleSticks";
+                    }
                     return champion;
                 }
                 //console.log(championList[i].id + " | " + championList[i].key);
@@ -93,4 +101,27 @@ function Which_Champ(id_champ) {
         }
     });
     return champion;
+}
+
+function Which_Queue(id_queue) {
+    var queue;
+    $.ajax({
+        url: "http://static.developer.riotgames.com/docs/lol/queues.json",
+        async: false,
+        dataType: 'json',
+        success: function (d) {
+            let queuetype = d;
+            for (var i in queuetype) {
+                if (queuetype[i].queueId == id_queue) {
+                    queue = queuetype[i].description;
+                    return queue;
+                }
+            }
+        }
+    });
+    return queue;
+}
+
+function Which_Runes(id_rune) {
+
 }

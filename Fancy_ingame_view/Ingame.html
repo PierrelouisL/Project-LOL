@@ -6,11 +6,11 @@
 		<title>Fancy in game view for league of legends</title>
 		<link rel="stylesheet" href="ingame.css">
 		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
 	</head>
 		
 	<body>
 		<div id="global">
-
 			<div class="menu">
 				<button class="btn">Menu</button>
 				<div class="dropdown-content">
@@ -20,87 +20,157 @@
 					<a href="about.html">À propos</a>
 				</div>
 			</div>
+			<h1 id="game_type" style="text-align:center;">Ranked_5v5</h1>
 			<div id="ingame_content">
-				<div id="left">
-					<table id="leftarray">
-						<tr>
-							<th scope="row" id="pseudo0">pseudo0</th>
-							<td><img id="i0" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Aatrox_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo1">pseudo1</th>
-							<td><img id="i1" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Ahri_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo2">pseudo2</th>
-							<td><img id="i2" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Alistar_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo3">pseudo3</th>
-							<td><img id="i3" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Akali_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo4">pseudo4</th>
-							<td><img id="i4" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
+					<table id="team1"> <!--AKA blue team-->
+						<tr class="">
+							<th colspan="4" id="pseudo0" style="background-color: #2796BC">pseudoB0</th>
 
-					</table>
-				</div>
-				<div id="right">
-					<table id="rightarray">
-						<tr>
-							<th scope="row" id="pseudo5">pseudo5</th>
-							<td><img id="i5" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Aatrox_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo6">pseudo6</th>
-							<td><img id="i6" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Ahri_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo7">pseudo7</th>
-							<td><img id="i7" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Alistar_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo8">pseudo8</th>
-							<td><img id="i8" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Akali_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
-						<tr>
-							<th scope="row" id="pseudo9">pseudo9</th>
-							<td><img id="i9" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="76" height="76" style="float:left" /></td>
-							<td>KDA</td>
-							<td>items/cs</td>
-							<td>gold</td>
-						</tr>
+							<th colspan="4" id="pseudo1" style="background-color: #2796BC">pseudoB1</th>
 
+							<th colspan="4" id="pseudo2" style="background-color: #2796BC">pseudoB2</th>
+
+							<th colspan="4" id="pseudo3" style="background-color: #2796BC">pseudoB3</th>
+
+							<th colspan="4" id="pseudo4" style="background-color: #2796BC">pseudoB4</th>
+						</tr>
+						<tr>
+							<th rowspan="2" colspan="2"><img id="i0" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="110" height="110" /></th>
+							<td><img id="s0_1" src="Flash.png" width="30" height="30" /></td>
+							<td><img id="r0_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35"/></td>
+
+							<th rowspan="2" colspan="2"><img id="i1" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s1_1" src="Flash.png" /></td>
+							<td><img id="r1_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i2" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s2_1" src="Flash.png" /></td>
+							<td><img id="r2_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i3" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s3_1" src="Flash.png" /></td>
+							<td><img id="r3_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i4" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s4_1" src="Flash.png" /></td>
+							<td><img id="r4_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+						</tr>
+						<tr>
+							<td><img id="s0_2" src="Flash.png" width="30" height="30" /></td>
+							<td><img id="r0_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" width="35" height="35" /></td>
+
+							<td><img id="s1_2" src="Flash.png" /></td>
+							<td><img id="r1_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s2_2" src="Flash.png" /></td>
+							<td><img id="r2_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s3_2" src="Flash.png" /></td>
+							<td><img id="r3_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s4_2" src="Flash.png" /></td>
+							<td><img id="r4_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+						</tr>
+						<tr>
+							<th colspan="4" id="rank0">WOOD4</th>
+
+							<th colspan="4" id="rank1">WOOD4</th>
+
+							<th colspan="4" id="rank2">WOOD4</th>
+
+							<th colspan="4" id="rank3">WOOD4</th>
+
+							<th colspan="4" id="rank4">WOOD4</th>
+						</tr>
+						<tr>
+							<th colspan="4" id="role0">Toplaner</th>
+
+							<th colspan="4" id="role1">Jungler</th>
+
+							<th colspan="4" id="role2">Midlaner</th>
+
+							<th colspan="4" id="role3">AD Carry</th>
+
+							<th colspan="4" id="role4">Support</th>
+						</tr>
 					</table>
-				</div>
+				<br/>
+					<table id="team2"> <!--AKA red team-->
+						<tr>
+							<th colspan="4" id="pseudo5" style="background-color: #E9422E">pseudoR0</th>
+
+							<th colspan="4" id="pseudo6" style="background-color: #E9422E">pseudoR1</th>
+
+							<th colspan="4" id="pseudo7" style="background-color: #E9422E">pseudoR2</th>
+
+							<th colspan="4" id="pseudo8" style="background-color: #E9422E">pseudoR3</th>
+
+							<th colspan="4" id="pseudo9" style="background-color: #E9422E">pseudoR4</th>
+						</tr>
+						<tr>
+							<th rowspan="2" colspan="2"><img id="i5" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s5_1" src="Flash.png" /></td>
+							<td><img id="r5_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i6" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s6_1" src="Flash.png" /></td>
+							<td><img id="r6_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i7" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s7_1" src="Flash.png" /></td>
+							<td><img id="r7_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i8" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s8_1" src="Flash.png" /></td>
+							<td><img id="r8_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<th rowspan="2" colspan="2"><img id="i9" src="https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Amumu_0.jpg" width="70" height="70" /></th>
+							<td><img id="s9_1" src="Flash.png" /></td>
+							<td><img id="r9_1" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+						</tr>
+						<tr>
+							<td><img id="s5_2" src="Flash.png" /></td>
+							<td><img id="r5_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s6_2" src="Flash.png" /></td>
+							<td><img id="r6_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s7_2" src="Flash.png" /></td>
+							<td><img id="r7_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s8_2" src="Flash.png" /></td>
+							<td><img id="r8_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+							<td><img id="s9_2" src="Flash.png" /></td>
+							<td><img id="r9_2" src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png" /></td>
+
+						</tr>
+						<tr>
+							<th colspan="4" id="rank5">WOOD4</th>
+
+							<th colspan="4" id="rank6">WOOD4</th>
+
+							<th colspan="4" id="rank7">WOOD4</th>
+
+							<th colspan="4" id="rank8">WOOD4</th>
+
+							<th colspan="4" id="rank9">WOOD4</th>
+						</tr>
+						<tr>
+							<th colspan="4" id="role5">Toplaner</th>
+
+							<th colspan="4" id="role6">Jungler</th>
+
+							<th colspan="4" id="role7">Midlaner</th>
+
+							<th colspan="4" id="role8">AD Carry</th>
+
+							<th colspan="4" id="role9">Support</th>
+						</tr>
+					</table>
 			</div>
 			<div class="User_input">
 				<input type="text" class="username_in" autocomplete="off" placeholder="Joueur en pleine partie..." autofocus>
@@ -121,9 +191,16 @@
 					</select>
 				</div>
 			</div>
-			<img src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/4.png" width="128" height="128" id="summonerIcon" style="position: absolute; top: 70%"/>
+			<img src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/4.png" width="128" height="128" id="summonerIcon" style="position: absolute; top: 70%" />
 		</div>
 		<script src="Ingame.js"></script>
-	</body>
+		<!--<script type="text/javascript">
+            document.getElementById("team1").style.visibility = 'visible';
+			document.getElementById("team2").style.visibility = 'visible';
+            document.getElementsByClassName("username_in")[0].style.visibility = 'hidden';
+            document.getElementsByClassName("search_button")[0].style.visibility = 'hidden';
+            document.getElementsByClassName("form-control")[0].style.visibility = 'hidden';
+		</script>-->
+	</body >
 
-</html>
+</html >

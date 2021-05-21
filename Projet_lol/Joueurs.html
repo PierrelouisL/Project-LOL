@@ -3,7 +3,7 @@
 
   <head>
   <meta charset="utf-8" />
-    <title>Site ISN</title>
+    <title>Site</title>
 	    <script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	 <link rel="stylesheet" href="Css3.css">
@@ -21,9 +21,10 @@
 	<div id="contenu">
 	
 		<script type = "text/javascript">
-		function displayName(){
-			var name = summonerNames.value;
-			summonerNamesOutput.value =  name;
+		
+		function display(){
+			var nameChamp = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+nameChampInput.value+'_0.jpg';
+			nameChampOutput.value =  nameChamp;
 		} // end displayName
 		
 		</script>
@@ -31,16 +32,37 @@
 		
 		<script>
 		
-		function TESTING(){
-			var name = summonerNames.value;
-			//$.getJSON('http://time.jsontest.com', function(data) { 
-			$.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/rgapi/summoner/euw1/'+name + '/1', function(data) {    
+		function TESTING()
+		{
+			var nameInput = summonerNamesInput.value;
+			<!-- $.getJSON('http://time.jsontest.com', function(data) { -->
+			$.getJSON('https://ds257qd73l.execute-api.eu-west-3.amazonaws.com/Debug/summoner/euw1/'+nameInput, function(data) {    
 			
-				summonerNamesOutput.value = `${data.summonerLevel}` 
-				var rep = document.getElementById("rep")
-				rep.innerHTML = summonerNamesOutput.value;
+				<!-- summonerNamesOutput.value = data.name  -->
+				<!-- summonerLevel.value = data.summonerLevel -->
+				
+				var TempsummonerNamesOutput = data.name;	//console.log(TempsummonerNamesOutput);
+				var repsummonerNamesOutput = document.getElementById("summonerNamesOutput");
+				repsummonerNamesOutput.innerHTML = "Nom: "+TempsummonerNamesOutput;
+				
+				var TempsummonerLevel = data.summonerLevel;	//console.log(TempsummonerNamesOutput);
+				var repsummonerLevel = document.getElementById("summonerLevel");
+				repsummonerLevel.innerHTML = "Niveau: "+TempsummonerLevel;
+				
+				var TempSummIcon =data.profileIconId;
+				var SummIcon = 'http://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/'+TempSummIcon+'.png';				
+				document.getElementById("image1").src=SummIcon;
+				
+				//http://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/588.png
 			
             });
+						
+			document.getElementById('summonerNamesOutput').hidden = false;
+			document.getElementById('summonerLevel').hidden = false;
+			document.getElementById('showRep').hidden = false;
+			document.getElementById('summonerIcon').hidden = false;
+			document.getElementById('image1').hidden = false;
+			document.getElementById('carret').hidden = false;	// le seul hidden neccessaire en realiter
 		}
 		</script>
 
@@ -48,20 +70,32 @@
 		
 		
 		<h2> Nom</h2>
-		<p>Entrez la valeur</p>
+		<p>Entrez le nom du joueur</p>
 		
-		<form action="./CarnetDeBord.html">
 		<fieldset>
 		<label>NOM : </label>
-	    <input type="text" id = "summonerNames"/>
+	    <input type="text" id = "summonerNamesInput"/>
 		<br>
 	    <input type = "button" value = "SENDING" onclick = "TESTING()"/>
+		</fieldset>
 		<br>
-		<label id="rep">Réponse </label>
-		<input type = "text" id = "summonerNamesOutput" />
+		<fieldset id='carret' hidden>
+		<label id='showRep' hidden>Réponse </label>
+		<br>
+		<p id='summonerNamesOutput' hidden>Nom : </p>
+		<br>
+		<p id='summonerLevel' hidden>Niveau : </p>
+		<br>
+		<p id='summonerIcon' hidden>Icone : </p>
+		<br>
+		<img id= image1 src = https://loltracker.com/images/easyblog_images/576/LOL_PROMOART_4.jpg
+		alt="ca ne fonctionne pas encore"
+		hidden>
+		<br>		
 		</fieldset>
 		
-		</form>
+		
+  
 	</div>
 	<!--	<script>
 		var trouvernom = {
